@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import Logon from './Pages/logon'
+import Routes from './router';
 function App() {
   return(
-<Logon />
+<Routes />
   )
 }
 
