@@ -1,9 +1,12 @@
+import'./style.css';
+import { Link } from 'react-router-dom';
 export default function menu(){
     return(
         <div>
-            <h1>Menu</h1>
-            <a href="">Usuario</a>
-            <a href="">Produto</a>
+           <nav>
+            <Link to="/listausuario" className='link'>Usuário</Link>
+            <Link to="/usuario" className='link'>Produto</Link>
+           </nav>
         </div>
     )
 }

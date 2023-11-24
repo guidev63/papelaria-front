@@ -1,15 +1,17 @@
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Logon from './Pages/logon';
 import Dashboard from './Pages/dashboard';
+import Listausuario from './Pages/listarUsuario';
 
 
-export default function Routes() {
+export default function Rotas() {
     return (
         <BrowserRouter>
-            <Switch>
-                <Route path={"/"} exact component={Logon}></Route>
-                <Route path={"/dashboard"}  component={Dashboard}></Route>
-            </Switch>
+            <Routes>
+                <Route path="/" exact element={<Logon />}>  </Route>
+                <Route path="/dashboard" element={<Dashboard />}></Route>
+                <Route path="/listausuario" element={<Listausuario />}></Route>
+            </Routes>
         </BrowserRouter>
     )
 }
