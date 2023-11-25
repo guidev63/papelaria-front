@@ -1,16 +1,16 @@
 import './style.css'
 import Logo from '../../assets/img/logo.jpg'
-import{useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function Logon() {
-const navigate = useNavigate();
-  
-const logar =(e)=>{
+  const navigate = useNavigate();
+
+  const logar = (e) => {
     e.preventDefault();
     navigate('/dashboard');
-}
+  }
 
   return (
     <div className="logon-container">
