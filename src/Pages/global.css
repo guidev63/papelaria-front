@@ -1,5 +1,5 @@
 .dashboard-container{
-    background-color: #6d838d;
+    background-color: #0055b3;
     height:100vh;
     display: flex;
     flex-direction: row;
@@ -19,4 +19,18 @@
     width: 80%;
     background-color: #ffffff;
     margin:5px;
+    padding: 5px;
+}
+table{
+    width: 100%;
+   border-collapse:collapse;
+   
+}
+td{
+    border: solid 0.5px #adb9d3;
+}
+.botoes:hover{
+    cursor: pointer;
+    background-color: silver;
+    
 }
