@@ -59,16 +59,22 @@ td {
     cursor: pointer;
 }
 
-form input {
+ .form-cadastro input {
     padding: 5px;
     border: #adb9d3;
+    width: 90%;
+    height: 30px;
+    color: #333;
+    border: 1px solid #dcdce6;
+    border-radius: 8px;
 
 }
 
-input:focus {
+.form-cadastro input:focus {
     box-shadow: 0 0 0 0;
-    border: 0 none;
+    border: 1px solid #adb9d3;
     outline: 0;
+    
 }
 
 .btn-save {
@@ -110,11 +116,13 @@ input:focus {
     
 }
 
-.form-cadastro {
+.form-cadastro  {
     background-color: rgb(255, 255, 255, 0.8);
     border: 1px solid rgb(0, 0, 0, 0.2);
     box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
     padding: 20px;
     padding: 5px;
     border-radius: 5px;
+    
 }
+
