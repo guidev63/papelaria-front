@@ -6,11 +6,12 @@ import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import { Link } from 'react-router-dom';
 import Head from '../../componentes/head';
 export default function Listausuario() {
-    const dados = [
-        { id: 1, nome: "guilherme", email: "guilhermedev23@gmail.com", senha: "123" },
-        { id: 2, nome: "felipe", email: "felipe@gmail.com", senha: "123" },
-        { id: 3, nome: "nilson", email: "nilson@gmail.com", senha: "123" },
-    ]
+    // const dados = [
+        // { id: 1, nome: "guilherme", email: "guilhermedev23@gmail.com", senha: "123" },
+        // { id: 2, nome: "felipe", email: "felipe@gmail.com", senha: "123" },
+        // { id: 3, nome: "nilson", email: "nilson@gmail.com", senha: "123" },
+    // ]
+    const banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
     const apagar = (id) => {
         confirmAlert({
             title: 'Excluir Usuario',
@@ -25,6 +26,7 @@ export default function Listausuario() {
                     onClick: () => alert('Click No')
                 }
             ]
+            
         });
     };
     return (
@@ -50,7 +52,7 @@ export default function Listausuario() {
                         <th></th>
                     </tr>
                     {
-                        dados.map((usu) => {
+                        banco.map((usu) => {
                             return (
                                 <tr key={usu.toString}>
                                     <td>{usu.id}</td>
