@@ -16,7 +16,8 @@ export default function Listausuario() {
     // ]
     useEffect(()=>{
         mostrardados();
-    },[banco])
+        console.table(banco)
+    },[])
 
     function mostrardados()
     { 
@@ -24,30 +25,28 @@ export default function Listausuario() {
     }
      
 
-    const apagar = (id) => {
+    const  apagar = (id) => {
         confirmAlert({
-            title: 'Excluir Usuario',
-            message: 'Deseja realmente excluir esse Usuario?',
-            buttons: [
-                {
-                    label: 'Sim',
-                    onClick: () =>
-                    {
-                         setDados(banco.filter(item=>item.id!=id));
-                         console.log(dados)
-                        // localStorage.setItem("cd-usuarios", JSON.stringify(dados));
-                        alert(`Voce Apagou o usuario id:${id}`)
-                    }
-                     
-                },
-                {
-                    label: 'Nao',
-                    onClick: () => alert('Click No')
-                }
-            ]
-            
+          title: 'Excluir Usuário',
+          message: 'Deseja realmente excluir esse usuário?',
+          buttons: [
+            {
+              label: 'Sim',
+              onClick: () => {
+                let dadosnovos = banco.filter(item => item.id !== id);
+                localStorage.setItem("cd-usuarios", JSON.stringify(dadosnovos));
+                setBanco(dadosnovos); // Atualiza o estado com os dados filtrados
+                alert(`Você apagou o usuário id:${id}`);
+              }
+              
+            },
+            {
+              label: 'Não',
+              onClick: () => alert('Click No')
+            }
+          ]
         });
-    };
+      };
     return (
 
         <div className="dashboard-container">
@@ -71,27 +70,27 @@ export default function Listausuario() {
                         <th></th>
                     </tr>
                     {
-                        banco.map((usu) => {
-                            return (
-                                <tr key={usu.toString}>
-                                    <td>{usu.id}</td>
-                                    <td>{usu.nome}</td>
-                                    <td>{usu.email}</td>
-                                    <td className='botoes'>
-                                        <FiEdit size={18} color='#3a5795' cursor="Pointer" />
-                                    </td>
-                                    <td className='botoes'>
-                                        <FiTrash
-                                            size={18}
-                                            color='red'
-                                            onClick={(e) => apagar(usu.id)}
-                                            cursor="Pointer" />
-                                    </td>
-                                </tr>
-
-                            )
-                        })
-                    }
+               banco.map((linha)=>{
+                return(
+                  <tr key={linha.toString()}>
+                    <td>{linha.id}</td>    
+                    <td>{linha.nome}</td>    
+                    <td>{linha.email}</td>    
+                    <td className='botoes'> 
+                      <FiEdit size={18} color='#3a5795'  />  
+                    </td>    
+                    <td className='botoes'> 
+                          <FiTrash 
+                          size={18} 
+                          color='red'
+                          onClick={(e)=>apagar(linha.id)} 
+                          /> 
+                    </td>    
+                    
+                  </tr>  
+                )
+               }) 
+            }
                 </table>
             </div>
         </div >
