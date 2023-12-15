@@ -77,7 +77,11 @@ export default function Listausuario() {
                     <td>{linha.nome}</td>    
                     <td>{linha.email}</td>    
                     <td className='botoes'> 
+                    <Link to={`/editarusuario/${linha.id}`}>
+
+                 
                       <FiEdit size={18} color='#3a5795'  />  
+                      </Link>
                     </td>    
                     <td className='botoes'> 
                           <FiTrash 

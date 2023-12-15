@@ -16,24 +16,34 @@ export default function Editarusuario() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [banco, setBanco] = useState([]);
+  const[status,setStatus] = useState(0);
   const usuario = {
     nome,
     email,
     senha
   }
   useEffect(() => {
+    if(status=== 1){
+      mostrardados(id);
+      setStatus(1);
+    }
     mostrardados();
     console.table(banco)
-  }, [])
-  function mostrardados() {
+  }, [banco]);
+
+  async function mostrardados(id) {
+    // let dadosnovos = await banco.filter(item => item.id == id);
     setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
-    let dadosnovos = banco.filter(item => item.id == id);
-    setNome(dadosnovos.nome);
-    setEmail(dadosnovos.email);
-    setSenha(dadosnovos.senha);
+    banco.map((linha)=>{
+      if(linha.id==id){
+        setNome(linha.nome);
+        setEmail(linha.email);
+        setSenha(linha.senha);
+      }
+     
+    });
 
-  }
-
+}
 
   function salvardados(e) {
     e.preventDefault();
