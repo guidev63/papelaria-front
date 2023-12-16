@@ -10,18 +10,21 @@ export default function Logon() {
   const[email,setEmail]=useState();
   const[senha,setSenha]=useState();
 
-  const logar = (e) => {
-    
+  const logar =(e)=>{
     e.preventDefault();
-   let Banco = JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
-   let dadosnovos = 'banco'.filter(item => item.email !== email && item.senha === senha);
-   if (dadosnovos.length>0){
-    navigate('/dashboard');
-   }else{
-     alert("Dados incorretos!!!");
-   }
-   
-  }
+    let banco =JSON.parse(localStorage.getItem("cd-usuarios") || "[]");
+    
+    
+    let dadosnovos = banco.filter(item => item.email === email && item.senha === senha);
+    console.log(banco);
+    if(dadosnovos.length>0){
+        navigate('/dashboard');
+    }else{
+        alert("Dados incorretos!!!");
+    }
+    
+    
+    }
 
   return (
     <div className="logon-container">
@@ -36,7 +39,6 @@ export default function Logon() {
            value= {email}
             />
           
-          value= {email}
           <input placeholder="Senha" type='password' 
            onChange={e => setSenha(e.target.value)}
           value= {email}/>

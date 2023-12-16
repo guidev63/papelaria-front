@@ -28,23 +28,24 @@ export default function Editarusuario() {
       setStatus(1);
     }
     mostrardados();
-    console.table(banco)
-  }, [banco]);
 
-  async function mostrardados(id) {
-    // let dadosnovos = await banco.filter(item => item.id == id);
-    setBanco(JSON.parse(localStorage.getItem("cd-usuarios") || "[]"));
-    banco.map((linha)=>{
-      if(linha.id==id){
-        setNome(linha.nome);
-        setEmail(linha.email);
-        setSenha(linha.senha);
-      }
-     
-    });
+  }, []);
 
-}
+  async function mostrardados(idu) {
+    let listaUser =JSON.parse(localStorage.getItem("cd-usuarios"));
+           listaUser.
+               filter(value => value.id ==idu).
+               map(value => {
+                   setNome(value.nome);
+                   setEmail(value.email);
+                   setSenha(value.senha);
+                   
+       
+       })
 
+
+
+     }
   function salvardados(e) {
     e.preventDefault();
 
